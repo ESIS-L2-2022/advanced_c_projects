@@ -7,7 +7,6 @@
 
 void initTabAlea(int tab[], int nbElements);
 void afficherTab(int tableau[], int nbElements);
-int chercherElementsCommuns(int *, int *, int *, int taille);
 int verifierElemTab(int element, int tableau[], int taille);
 int ElementsDifferTab1(int *, int *, int *, int taille);
 int ElementsDifferTab2(int *, int *, int *, int taille);
@@ -26,13 +25,6 @@ int main(){
     printf("le deuxieme tableau : ");
     afficherTab(tab2, TAILLE);
 
-    printf("les elements communs: ");
-    int nb = chercherElementsCommuns(tab1, tab2, tabCommuns, TAILLE);
-    if(nb > 0)
-        afficherTab(tabCommuns, nb);
-    else
-        printf("Aucun element commun\n");
-
     printf("Elements different tableau 1 : ");
     int nb1 = ElementsDifferTab1(tab1, tab2, tabDif1, TAILLE);
     if(nb1 > 0)
@@ -47,7 +39,7 @@ int main(){
     else
         printf("Aucun element commun\n");  
 
-    afficherTabDif(tab1, tab2, tabCommuns, TAILLE);
+    //afficherTabDif(tab1, tab2, tabCommuns, TAILLE);
 
     return 0;
 }
@@ -74,27 +66,6 @@ void afficherTab(int tableau[], int nbElements){
     printf("]\n");
 }
 
-int chercherElementsCommuns(int tab1[], int tab2[], int tabCommuns[], int taille){
-    int nbElemCommuns = 0;
-    int i, j;
-
-    for ( i = 0; i < taille; i++ )
-    {
-        for (j = 0; j < taille; j++)
-        {
-            if (tab1[i] == tab2[j])
-            {
-                if (!verifierElemTab(tab1[i], tabCommuns, nbElemCommuns))
-                {
-                    tabCommuns[nbElemCommuns] = tab1[i];
-                    nbElemCommuns++;
-                }
-            }
-        }
-    }
-    return nbElemCommuns;
-}
-
 int ElementsDifferTab1(int tab1[], int tab2[], int tabCommuns[], int taille){
     int nbElemDufferent = 0;
     int i, j;
@@ -109,7 +80,11 @@ int ElementsDifferTab1(int tab1[], int tab2[], int tabCommuns[], int taille){
                 {
                     tabCommuns[nbElemDufferent] = tab1[i];
                     nbElemDufferent++;
+                }else {
+                    tabCommuns[nbElemDufferent] = tabCommuns[nbElemDufferent + 1];
+                    nbElemDufferent--;
                 }
+                
             }
         }
     }
@@ -124,12 +99,15 @@ int ElementsDifferTab2(int tab1[], int tab2[], int tabCommuns[], int taille){
     {
         for (j = 0; j < taille; j++)
         {
-            if (tab1[i] != tab2[j])
+            if (tab2[i] != tab1[j])
             {
-                if (!verifierElemTab(tab2[j], tabCommuns, nbElemDufferent))
+                if (!verifierElemTab(tab2[i], tabCommuns, nbElemDufferent))
                 {
-                    tabCommuns[nbElemDufferent] = tab2[j];
+                    tabCommuns[nbElemDufferent] = tab2[i];
                     nbElemDufferent++;
+                }else {
+                    tabCommuns[nbElemDufferent] = tabCommuns[nbElemDufferent + 1];
+                    nbElemDufferent--;
                 }
             }
         }
