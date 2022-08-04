@@ -22,9 +22,7 @@ void filter(int *tab, int n, int (*closir)()){
         {
             t[j] = tab[i];
             printf("%d ", t[j]);
-        }else
-            printf("pas des nombres paire")
-        
+        }
     }
     printf("\n");
 }
