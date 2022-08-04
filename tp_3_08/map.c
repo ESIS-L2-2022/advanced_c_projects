@@ -9,20 +9,50 @@ int pair(int n){
         return 0;
 }
 
-void filter(int *tab, int n, int (*closir)()){
+int *filter(int *tab, int n, int (*closir)()){
 
-    int *t, j = 0;
-    t= (int*)malloc(n * sizeof(int));
+    int t[50] = {0}; 
+    int j = 0;
 
-    printf("Liste des pair :\n");
+    //t= (int*)malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++)
     {
         if (closir(tab[i]) == 1)
         {
             t[j] = tab[i];
-            printf("%d ", t[j]);
         }
     }
-    printf("\n");
+
+    int *resTab = NULL;
+    resTab = (int*)malloc(sizeof(int)*(j + 1));
+
+    if (resTab == NULL)
+        return NULL;
+
+    int k = 0;
+
+    for (k; k < j; k++)
+    {
+        resTab[k] = t[k];
+    }
+    
+    resTab[k] = -1;
+
+    return resTab;
+}
+
+void printTab(int * tab, int n){
+    int i = 0;
+    if(n){
+        for (i; i < n; i++)
+            printf("%d ", tab[i]);
+        printf("\n");
+    }else {
+        while (*(tab + i) != -1){
+            printf("%d ", *(tab + i)); 
+            i++;
+        }
+        printf("\n");
+    }
 }
