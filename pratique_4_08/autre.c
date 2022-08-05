@@ -1,0 +1,2 @@
+
+int variableGlobale = 777;
