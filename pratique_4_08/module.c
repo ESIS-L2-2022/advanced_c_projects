@@ -5,3 +5,38 @@ float * creerTableau(){
 
     return tableau;
 }
+
+void afficherJour(JOUR unJour){
+    switch (unJour){
+        case LUNDI:
+            puts("Lundi");
+            break;
+        
+        case MARDI:
+            puts("Mardi");
+            break;
+        
+        case MERCREDI:
+            puts("Mercredi");
+            break;
+        
+        case JEUDI:
+            puts("Jeudi");
+            break;
+        
+        case VENDREDI:
+            puts("Vendredi");
+            break;
+        
+        case SAMEDI:
+            puts("Samedi");
+            break;
+
+        case DIMANCHE:
+            puts("Dimanche");
+            break;
+
+        default: puts("Jour incorrecte");
+            break;
+    }
+}

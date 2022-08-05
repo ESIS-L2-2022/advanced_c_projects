@@ -12,6 +12,13 @@ int main(void){
         printf("%.1f  ", tab[i]);
     }
     printf("\n---------- %d -------------\n", variableGlobale);
+
+    int rep;
+
+    printf("Entrez le numero d'un Jour\n");
+    scanf("%d", &rep);
+
+    afficherJour(rep);
     
     return 0;
 }
