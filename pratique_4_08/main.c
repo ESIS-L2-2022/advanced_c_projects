@@ -1,6 +1,33 @@
 #include <stdio.h>
 #include "module.h"
 
+typedef struct sPoint{
+    int x;
+    int y;
+
+    struct{
+        int z;
+    };
+} structPoint;
+
+typedef union uPoint{
+    int x;
+    int y;
+} unionPoint;
+
+
+int main(){
+    unionPoint p;
+
+    p.x = 10;
+    p.y = 15;
+
+    printf("%d ", p.x);
+
+    return 0;
+}
+
+/*
 extern int variableGlobale;
 
 int main(void){
@@ -21,4 +48,4 @@ int main(void){
     afficherJour(rep);
     
     return 0;
-}
+}*/
