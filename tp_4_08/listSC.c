@@ -65,6 +65,6 @@ void pause(){
 }
 
 void quitter(){
-    printf("\n... appuyer sur la touche  zero (0) pour  quitter...");
+    printf("\n... appuyer sur la touche  zero (0) pour  quitter...\n");
     exit(0);
 }
