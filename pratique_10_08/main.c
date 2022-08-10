@@ -5,11 +5,8 @@
 
 int main(){
 
-    #if D == 1
-        printf("We are debugging code. \n");
-    #else
-        printf("josh\n");
-    #endif
+    if(estDivisible(5, 0))
+        printf("josh");
 
     return 0;
 }
