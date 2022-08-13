@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]){
 
-    //int num = argv[1], 
+    int num = argv[1];
     int i;
     char tout[52];
     char password[7];
