@@ -1,6 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 #include "threads.h"
 
@@ -17,15 +18,14 @@ void *customThread(void *arg){
     saveData.moyen = (float)sum / (SIZE);
 
     for (int i = 1; i < SIZE; ++i) {
-        if (saveData.max < n[i]) {
+        if (saveData.max < n[i])
             saveData.max = n[i];
-        }
     }
 
     for (int i = 1; i < SIZE; ++i) {
-        if (saveData.min > n[i]) {
+        if (saveData.min > n[i])
             saveData.min = n[i];
-        }
     }
-    pthread_exit(0);
+    sleep(1);
+    pthread_exit("Calcul fini !");
 }
